@@ -24,7 +24,7 @@ local function plugin_exists( name )
 end
 
 local function list_plugins(only_enabled)
-  local text = '💢 Plugins :\n'
+  local text = '💢 پلاگین ها :\n'
   local psum = 0
   for k, v in pairs( plugins_names( )) do    local status = '🚫'
     psum = psum+1
@@ -90,7 +90,7 @@ end
 
 local function disable_plugin_on_chat(receiver, plugin)
   if not plugin_exists(plugin) then
-    return '💢 Plugin doesn\'t exists.'
+    return '💢 پلاگین وجود ندارد '
   end
 
   if not _config.disabled_plugin_on_chat then
@@ -129,41 +129,41 @@ local function run(msg, matches)
 	to_id = msg.to.id
   -- Show the available plugins
   if permissions(msg.from.id, msg.to.id, "plugins") then
-    if matches[1] == '#plugins' then
+    if matches[1] == 'پلاگین' then
       return list_plugins()
     end
 
     -- Re-enable a plugin for this chat
-    if matches[1] == 'enable' and matches[3] == 'gp' then
+    if matches[1] == '+' and matches[3] == 'گروه' then
       local receiver = get_receiver(msg)
       local plugin = matches[2]
-      print("enable "..plugin..' on this gp')
+      print("فعال شد "..plugin..' در این گروه')
       return reenable_plugin_on_chat(receiver, plugin)
     end
 
     -- Enable a plugin
-    if matches[1] == 'enable' then
+    if matches[1] == '+' then
       local plugin_name = matches[2]
       print("enable: "..matches[2])
       return enable_plugin(plugin_name)
     end
 
     -- Disable a plugin on a chat
-    if matches[1] == 'disable' and matches[3] == 'gp' then
+    if matches[1] == '-' and matches[3] == 'گروه' then
       local plugin = matches[2]
       local receiver = get_receiver(msg)
-      print("disable "..plugin..' on this gp')
+      print("غیر فعال "..plugin..' در این گروه')
       return disable_plugin_on_chat(receiver, plugin)
     end
 
     -- Disable a plugin
-    if matches[1] == 'disable' then
+    if matches[1] == '-' then
       print("disable: "..matches[2])
       return disable_plugin(matches[2])
     end
 
     -- Reload all the plugins!
-    if matches[1] == 'reload' then
+    if matches[1] == 'ابدیت' then
       return reload_plugins(true)
     end
   else
@@ -173,12 +173,12 @@ end
 
 return {
   patterns = {
-    "^#plugins$",
-    "^#plugins? (enable) ([%w_%.%-]+)$",
-    "^#plugins? (disable) ([%w_%.%-]+)$",
-    "^#plugins? (enable) ([%w_%.%-]+) (gp)",
-    "^#plugins? (disable) ([%w_%.%-]+) (gp)",
-    "^#plugins? (reload)$" },
+    "^پلاگین ها$",
+    "^پلاگین? (+) ([%w_%.%-]+)$",
+    "^پلاگین? (-) ([%w_%.%-]+)$",
+    "^پلاگین? (+) ([%w_%.%-]+) (گروه)",
+    "^پلاگین? (-) ([%w_%.%-]+) (گروه)",
+    "^پلاگین? (ابدیت)$" },
   run = run
 }
 
