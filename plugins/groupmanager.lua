@@ -65,6 +65,7 @@ local function run(msg, matches)
             if not redis:get(hash) then
                 if msg.to.type == 'chat' then
                     rename_chat(msg.to.peer_id, matches[2], ok_cb, false)
+                    return "اسم گروه عوض شد"
                 elseif msg.to.type == 'channel' then
                     rename_channel(msg.to.peer_id, matches[2], ok_cb, false)
                     return "اسم گروه عوض شد"
