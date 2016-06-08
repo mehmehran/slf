@@ -128,7 +128,7 @@ local function run(msg, matches)
         else
             return 'اخطار....'
         end
-            elseif matches[1] == 'rmv' then
+            elseif matches[1] == 'اخراج' then
         if permissions(msg.from.id, msg.to.id, "kick") then
             local chat_id = msg.to.id
             local chat_type = msg.to.type
@@ -139,7 +139,7 @@ local function run(msg, matches)
             if not is_id(matches[2]) then
                 local member = string.gsub(matches[2], '@', '')
                 resolve_username(member, kick_by_username, {chat_id=chat_id, member=member, chat_type=chat_type})
-                return
+                return "شخص مورد نظر اخراج شد"
             else
                 local user_id = matches[2]
                 if msg.to.type == 'chat' then
@@ -189,8 +189,8 @@ return {
         '^(لینک جدید)$',
         '^(تبدیل سوپر)$',
         '^#(setdes) (.*)$',
-        "^#(rmv)$",
-        "^#(rmv) (.*)$",
+        "^(اخراج)$",
+        "^(اخراج) (.*)$",
         "^#(add)$",
         "^#(add) (.*)$",
     },
