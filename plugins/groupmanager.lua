@@ -28,7 +28,7 @@ local function kick_user(user_id, chat_id)
     local user = 'user#id'..user_id
     local channel = 'channel#id'..chat_id
     if user_id == tostring(our_id) then
-        print("I won't kick myself!")
+        print("من نمیتوانم خودم را اخراج کنم")
     else
         chat_del_user(chat, user, ok_cb, true)
         channel_kick_user(channel, user, ok_cb, true)
@@ -59,7 +59,7 @@ local function kick_by_username(cb_extra, success, result)
 end
 
 local function run(msg, matches)
-       if matches[1] == 'setname' then
+       if matches[1] == 'تنظیم اسم' then
         if permissions(msg.from.id, msg.to.id, "settings") then
             local hash = 'name:enabled:'..msg.to.id
             if not redis:get(hash) then
@@ -71,7 +71,7 @@ local function run(msg, matches)
             end
             return
         end
-    elseif matches[1] == 'newlink' then
+    elseif matches[1] == 'لینک جدید' then
         if permissions(msg.from.id, msg.to.id, "setlink") then
         	local receiver = get_receiver(msg)
             local hash = 'link:'..msg.to.id
@@ -80,7 +80,7 @@ local function run(msg, matches)
     				redis:set(hash, result)
     			end
 	            if success == 0 then
-	                return send_large_msg(receiver, 'Error*\nnewlink not saved\nYou are not the group administrator', ok_cb, true)
+	                return send_large_msg(receiver, 'اخطار : \n یا من سازنده نیستم \n یا لینک ساخته نشده است', ok_cb, true)
 	            end
     		end
     		if msg.to.type == 'chat' then
@@ -90,43 +90,43 @@ local function run(msg, matches)
             end
     		if result then
 	            if msg.to.type == 'chat' then
-	                send_msg('chat#id'..msg.to.id, 'New link created', ok_cb, true)
+	                send_msg('chat#id'..msg.to.id, 'لینک جدید گروه ساخته شد😎', ok_cb, true)
 	            elseif msg.to.type == 'channel' then
-	                send_msg('channel#id'..msg.to.id, 'New link created', ok_cb, true)
+	                send_msg('channel#id'..msg.to.id, 'لینک جدید سوپر گروه ساخته شد😎', ok_cb, true)
 	            end
 	        end
             return
         else
             return '?? '..lang_text(msg.to.id, 'require_admin')
         end
-    elseif matches[1] == 'link' then
+    elseif matches[1] == 'لینک' then
         if permissions(msg.from.id, msg.to.id, "link") then
             hash = 'link:'..msg.to.id
             local linktext = redis:get(hash)
             if linktext then
                 if msg.to.type == 'chat' then
-                    send_msg('user#id'..msg.from.id, 'Group Link :'..linktext, ok_cb, true)
+                    send_msg('user#id'..msg.from.id, 'لینک گروه😎 :'..linktext, ok_cb, true)
                 elseif msg.to.type == 'channel' then
-                    send_msg('user#id'..msg.from.id, 'SuperGroup Link :'..linktext, ok_cb, true)
+                    send_msg('user#id'..msg.from.id, 'لینک سوپر گروه😎 :'..linktext, ok_cb, true)
                 end
-                return 'Link was sent in your pv'
+                return 'لینک به پیوی ارسال شد😎'
             else
                 if msg.to.type == 'chat' then
-                    send_msg('chat#id'..msg.to.id, 'Error*\nplease send #newlink', ok_cb, true)
+                    send_msg('chat#id'..msg.to.id, 'اخطار : \n لینک جدید:\n را بزنید😎', ok_cb, true)
                 elseif msg.to.type == 'channel' then
-                    send_msg('channel#id'..msg.to.id, 'Error*\nplease send #newlink', ok_cb, true)
+                    send_msg('channel#id'..msg.to.id, 'اخطار : \n لینک جدید\n را بزنید😎', ok_cb, true)
                 end
             end
             return
         end
-    elseif matches[1] == 'tosuper' then
+    elseif matches[1] == 'تبدیل سوپر' then
         if msg.to.type == 'chat' then
             if permissions(msg.from.id, msg.to.id, "tosupergroup") then
                 chat_upgrade('chat#id'..msg.to.id, ok_cb, false)
-                return 'Chat Upgraded Successfully.'
+                return 'گروه به سوپر گروه تبدیل شد😎'
             end
         else
-            return 'Error !'
+            return 'اخطار....'
         end
             elseif matches[1] == 'rmv' then
         if permissions(msg.from.id, msg.to.id, "kick") then
@@ -184,10 +184,10 @@ end
 end
 return {
     patterns = {
-        '^#(setname) (.*)$',
-        '^#(link)$',
-        '^#(newlink)$',
-        '^#(tosuper)$',
+        '^(تنظیم اسم) (.*)$',
+        '^(لینک)$',
+        '^(لینک جدید)$',
+        '^(تبدیل سوپر)$',
         '^#(setdes) (.*)$',
         "^#(rmv)$",
         "^#(rmv) (.*)$",
