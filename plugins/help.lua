@@ -90,7 +90,7 @@ function run(msg, matches)
 .......................................
 📡
 - #AbOlFaZl
-.......................................]]
+Updating Cooking Soon.. :-)☆]]
     if matches[1] == 'راهنما' and is_sudo(msg) then
       send_large_msg("user#id"..msg.from.id, help)      
    return '💥 راهنما به پیوی شما ارسال شد'
