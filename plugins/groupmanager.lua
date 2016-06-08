@@ -67,6 +67,7 @@ local function run(msg, matches)
                     rename_chat(msg.to.peer_id, matches[2], ok_cb, false)
                 elseif msg.to.type == 'channel' then
                     rename_channel(msg.to.peer_id, matches[2], ok_cb, false)
+                    return "اسم گروه عوض شد"
                 end
             end
             return
