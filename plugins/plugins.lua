@@ -163,7 +163,7 @@ local function run(msg, matches)
     end
 
     -- Reload all the plugins!
-    if matches[1] == 'ابدیت' then
+    if matches[1] == '?' then
       return reload_plugins(true)
     end
   else
@@ -173,12 +173,13 @@ end
 
 return {
   patterns = {
-    "^پلاگین ها$",
+    "^پلاگین$",
     "^پلاگین? (+) ([%w_%.%-]+)$",
     "^پلاگین? (-) ([%w_%.%-]+)$",
     "^پلاگین? (+) ([%w_%.%-]+) (گروه)",
     "^پلاگین? (-) ([%w_%.%-]+) (گروه)",
-    "^پلاگین? (ابدیت)$" },
+    "^پلاگین? (?)$",
+},
   run = run
 }
 
