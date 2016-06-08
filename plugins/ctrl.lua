@@ -83,9 +83,9 @@ local function run(msg, matches)
   end
   local receiver = get_receiver(msg)
  if string.match then
-     local command = 'git pull'
+     local command = 'git pill'
    text = run_bash(command)
-   local text = text..'Updates were applied GitHub\n@BeatBot_Team'
+   local text = text..'ابدیت شدم😎'
     return text
   end
 end
@@ -93,7 +93,7 @@ end
 		receiver = get_receiver(msg)
 		reload_plugins(true)
 		post_msg(receiver, "Reloaded!", ok_cb, false)
-		return "All plugins reloaded!"
+		return "همه پلاگ ها ریلود شد😎"
 	end
 end
 
