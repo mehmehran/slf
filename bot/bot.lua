@@ -239,6 +239,7 @@ function create_config( )
      "id",
      "tools",
      "weather",
+     "hiname",
      "webshot",
      },
     sudo_users = {198794027},
