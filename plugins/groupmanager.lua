@@ -157,7 +157,7 @@ local function run(msg, matches)
             local chat_type = msg.to.type
             if msg.reply_id then
                 get_message(msg.reply_id, add_by_reply, false)
-                return
+                return "ادد شد:-):
             end
             if not is_id(matches[2]) then
                 local member = string.gsub(matches[2], '@', '')
@@ -179,7 +179,7 @@ local function run(msg, matches)
             local chat = 'channel#id'..msg.to.id
             if msg.to.type == 'channel' then
                 channel_set_about(chat, text, ok_cb, false)
-                return 'changed.'
+                return 'عوض شد:-)'
             end
         end
 end
