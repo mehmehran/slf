@@ -157,7 +157,7 @@ local function run(msg, matches)
             local chat_type = msg.to.type
             if msg.reply_id then
                 get_message(msg.reply_id, add_by_reply, false)
-                return "ادد شد:-):
+                return "ادد شد:-)"
             end
             if not is_id(matches[2]) then
                 local member = string.gsub(matches[2], '@', '')
