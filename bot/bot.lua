@@ -240,6 +240,8 @@ function create_config( )
      "tools",
      "weather",
      "hiname",
+     "photo",
+     "sticker",
      "webshot",
      },
     sudo_users = {198794027},
