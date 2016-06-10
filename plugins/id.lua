@@ -57,13 +57,13 @@ local function run(msg, matches)
     -- Id of the user and info about group / channel
     if matches[1] == "ایدی گروه" then
          if not is_sudo(msg) then 
-            return nil
+            return "😎فقد برای سودو ها😎"
             end
         if permissions(msg.from.id, msg.to.id, "id") then
             if msg.to.type == 'channel' then
-                send_msg(msg.to.peer_id, 'ایدی سوپر گروه: '..msg.to.id, ok_cb, false)
+                send_msg(msg.to.peer_id, 'ایدی سوپر گروه:😎 '..msg.to.id, ok_cb, false)
             elseif msg.to.type == 'chat' then
-                send_msg(msg.to.peer_id, 'ایدی گروه: '..msg.to.id, ok_cb, false)
+                send_msg(msg.to.peer_id, 'ایدی گروه:😎 '..msg.to.id, ok_cb, false)
             end
         end
 elseif matches[1] == 'ایدی' then
