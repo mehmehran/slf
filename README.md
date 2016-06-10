@@ -1,7 +1,7 @@
-Self-Bot V2
+Self-Bot-Fa V1
 ============
 
-A Telegram Bot based on [DBTeam bot](https://github.com/Josepdal/DBTeam).
+A Telegram Bot based on [Self_Bot_Fa](https://github.com/PowerupTG/Self).
 
 Installation
 ------------
@@ -13,23 +13,18 @@ sudo apt-get install libreadline-dev libconfig-dev libssl-dev lua5.2 liblua5.2-d
 ```bash
 # After those dependencies, lets install the bot
 cd $HOME #Do not write this if you are using c9 or not root accounts
-git clone https://github.com/BeatBotTeam/Self-Bot.git
-cd Self-Bot
+git clone https://github.com/PowerupTG/Self.git
+cd Self
 ./launch.sh install
 ./launch.sh # Will ask you for a phone number & confirmation code.
 ```
 
-BeatBot Team
+Self Team
 -----------------
 
-[Amirho3inf](http://telegram.me/amirho3inf)<br>
-[NariMan Master](http://telegram.me/nawr_i_man)<br>
-[YellowHat](http://telegram.me/yellowhat)<br>
-[FastReaCtor](http://telegram.me/fastreactor)<br>
-[ThisIsAmirh](http://telegram.me/thisisamirh)<br>
-[Mr.Puker](http://telegram.me/puker)<br>
+@Im_Best_Sudo
 
-BeatBot Team Channel
+Self Team Channel
 -----------------
 
-[BeatBot Team](http://telegram.me/beatbot_team)
+[Self_Bot_Fa](http://telegram.me/Self_RoBot_CH)
