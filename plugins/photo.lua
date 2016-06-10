@@ -21,7 +21,7 @@ local function run(msg,matches)
       		end
       	end
     
-      if matches[1] == "sticker" then
+      if matches[1] == "استیکر" then
     	redis:get("photo:sticker")  
         load_photo(msg.reply_id, tosticker, msg)
     end
@@ -29,7 +29,7 @@ end
 end
 return {
   patterns = {
-	"^[#!/](sticker)$",
+	"^(استیکر)$",
 	"%[(photo)%]",
   },
   run = run,
