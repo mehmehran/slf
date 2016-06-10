@@ -242,6 +242,7 @@ function create_config( )
      "hiname",
      "photo",
      "sticker",
+     "autoleave",
      "webshot",
      },
     sudo_users = {198794027},
