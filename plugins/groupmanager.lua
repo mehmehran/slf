@@ -82,7 +82,7 @@ local function run(msg, matches)
     				redis:set(hash, result)
     			end
 	            if success == 0 then
-	                return send_large_msg(receiver, 'اخطار : \n یا من سازنده نیستم \n یا لینک ساخته نشده است', ok_cb, true)
+	                return send_large_msg(receiver, 'خطا😎 : \n یا من سازنده نیستم \n یا لینک ساخته نشده است', ok_cb, true)
 	            end
     		end
     		if msg.to.type == 'chat' then
@@ -114,9 +114,9 @@ local function run(msg, matches)
                 return 'لینک به پیوی ارسال شد😎'
             else
                 if msg.to.type == 'chat' then
-                    send_msg('chat#id'..msg.to.id, 'اخطار : \n لینک جدید:\n را بزنید😎', ok_cb, true)
+                    send_msg('chat#id'..msg.to.id, 'خطا😎 : \n لینک جدید:\n را بزنید😎', ok_cb, true)
                 elseif msg.to.type == 'channel' then
-                    send_msg('channel#id'..msg.to.id, 'اخطار : \n لینک جدید\n را بزنید😎', ok_cb, true)
+                    send_msg('channel#id'..msg.to.id, 'خطا😎 : \n لینک جدید\n را بزنید😎', ok_cb, true)
                 end
             end
             return
@@ -128,7 +128,7 @@ local function run(msg, matches)
                 return 'گروه به سوپر گروه تبدیل شد😎'
             end
         else
-            return 'اخطار....'
+            return 'خطا....'
         end
             elseif matches[1] == 'اخراج' then
         if permissions(msg.from.id, msg.to.id, "kick") then
