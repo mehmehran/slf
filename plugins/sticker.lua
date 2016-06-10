@@ -20,14 +20,14 @@ local function run(msg,matches)
       		if redis:set("sticker:photo", "waiting") then
       		end
   	end
-      if matches[1] == "photo" then
+      if matches[1] == "عکس" then
     	redis:get("sticker:photo")  
         load_document(msg.reply_id, toimage, msg)
     end
 end
 return {
   patterns = {
-	"^[#!/](photo)$",
+	"^(عکس)$",
 	"%[(document)%]"
   },
   run = run,
