@@ -13,18 +13,11 @@ sudo apt-get install libreadline-dev libconfig-dev libssl-dev lua5.2 liblua5.2-d
 ```bash
 # After those dependencies, lets install the bot
 cd $HOME #Do not write this if you are using c9 or not root accounts
-git clone https://github.com/PowerupTG/Self.git
-cd Self
+git clone https://github.com/mehmehran/slf.git
+cd slf
 ./launch.sh install
 ./launch.sh # Will ask you for a phone number & confirmation code.
 ```
 
-Self Team
------------------
-
-@Im_Best_Sudo
-
-Self Team Channel
------------------
-
-[Self_Bot_Fa](http://telegram.me/Self_RoBot_CH)
+Not Team
+--------
